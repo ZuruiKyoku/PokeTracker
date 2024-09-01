@@ -1,0 +1,200 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuwwq52wygf8"]
+
+[ext_resource type="Theme" uid="uid://csfxn5wsj7bu8" path="res://ThemeFiles/theme.tres" id="1_4nbug"]
+[ext_resource type="PackedScene" uid="uid://wjeh02t5pmfh" path="res://Scenes/pokemon.tscn" id="1_b3yse"]
+[ext_resource type="Script" path="res://Scripts/box.gd" id="2_yeave"]
+
+[sub_resource type="Theme" id="Theme_hihqo"]
+
+[node name="Box" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4nbug")
+script = ExtResource("2_yeave")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -340.0
+offset_right = 315.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.501961)
+
+[node name="PokemonBox" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -340.0
+offset_right = 315.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hihqo")
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 6
+
+[node name="Pokemon1" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon2" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon3" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon4" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon5" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon6" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon7" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon8" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon9" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon10" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon11" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon12" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon13" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon14" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon15" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon16" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon17" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon18" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon19" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon20" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon21" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon22" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon23" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon24" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon25" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon26" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon27" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon28" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon29" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pokemon30" parent="PokemonBox" instance=ExtResource("1_b3yse")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

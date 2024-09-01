@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://csfxn5wsj7bu8"]
+
+[ext_resource type="FontFile" uid="uid://cxp5rbhljppkd" path="res://ThemeFiles/RubikMonoOne-Regular.ttf" id="1_66r6d"]
+[ext_resource type="FontFile" uid="uid://b06p0jfqnc7ci" path="res://ThemeFiles/Kenney Future.ttf" id="2_kwm2s"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_66r6d")
+Label/fonts/font = ExtResource("1_66r6d")
+RichTextLabel/fonts/normal_font = ExtResource("2_kwm2s")

@@ -17,7 +17,10 @@ config/icon="res://Images/Icons/Icon.png"
 
 [autoload]
 
+Globals="*res://Globals/Globals.gd"
 DisplayManager="*res://Globals/DisplayManager.gd"
+SceneManager="*res://Globals/SceneManager.gd"
+Audio="*res://Globals/Audio.tscn"
 
 [display]
 
@@ -35,6 +38,11 @@ project/assembly_name="PokeTracker"
 
 enabled=PackedStringArray("res://addons/timer/plugin.cfg")
 
+[global_group]
+
+Buttons=""
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"

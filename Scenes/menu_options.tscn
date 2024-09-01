@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://etqsd6x4yn7r"]
+[gd_scene load_steps=3 format=3 uid="uid://etqsd6x4yn7r"]
+
+[ext_resource type="Theme" uid="uid://csfxn5wsj7bu8" path="res://ThemeFiles/theme.tres" id="1_nseuv"]
+[ext_resource type="Script" path="res://Scripts/menu_options.gd" id="2_710hh"]
 
 [node name="MenuOptions" type="Control"]
 layout_mode = 3
@@ -8,6 +11,8 @@ anchor_bottom = 1.0
 offset_bottom = -600.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_nseuv")
+script = ExtResource("2_710hh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
@@ -28,14 +33,24 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 columns = 2
 
-[node name="Pokedex" type="Button" parent="MarginContainer/GridContainer"]
+[node name="Pokedex" type="Button" parent="MarginContainer/GridContainer" groups=["Buttons"]]
 self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(350, 90)
 layout_mode = 2
 text = "Pokedex"
 
-[node name="Tracker" type="Button" parent="MarginContainer/GridContainer"]
+[node name="HomeTracker" type="Button" parent="MarginContainer/GridContainer" groups=["Buttons"]]
 self_modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(350, 90)
 layout_mode = 2
-text = "Tracker"
+text = "Home Tracker"
+
+[node name="ShinyHunt" type="Button" parent="MarginContainer/GridContainer" groups=["Buttons"]]
+self_modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(350, 90)
+layout_mode = 2
+text = "Shiny Hunts"
+
+[connection signal="button_up" from="MarginContainer/GridContainer/Pokedex" to="." method="_on_pokedex_button_up"]
+[connection signal="button_up" from="MarginContainer/GridContainer/HomeTracker" to="." method="_on_home_tracker_button_up"]
+[connection signal="button_up" from="MarginContainer/GridContainer/ShinyHunt" to="." method="_on_shiny_hunt_button_up"]

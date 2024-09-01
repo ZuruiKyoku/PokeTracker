@@ -1,0 +1,153 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw8k70tgnaaeh"]
+
+[ext_resource type="Script" path="res://Scripts/BoxChecklist.gd" id="1_d2qdo"]
+[ext_resource type="Texture2D" uid="uid://fhlwxkycv8wk" path="res://Images/Icons/arrowLeft.png" id="3_ai72g"]
+[ext_resource type="PackedScene" path="res://Scenes/box.tscn" id="3_s1005"]
+[ext_resource type="Texture2D" uid="uid://r6svaiqcpsol" path="res://Images/Icons/arrowRight.png" id="4_g8ofw"]
+[ext_resource type="Texture2D" uid="uid://c4bdrgcmxn63j" path="res://Images/Icons/save.png" id="5_l1kjw"]
+
+[node name="BoxChecklist" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d2qdo")
+
+[node name="Box" parent="." instance=ExtResource("3_s1005")]
+layout_mode = 1
+
+[node name="DexName" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 25.0
+offset_bottom = 94.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center][b]DexName"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="DexName"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.611765)
+
+[node name="NumberOfMons" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 169.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center][b]0/0"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="NumberOfMons"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.611765)
+
+[node name="PageNumber" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 45.0
+offset_top = 200.0
+offset_right = -45.0
+offset_bottom = 245.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center][b]Page #"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="PageNumber"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.611765)
+
+[node name="BoxNumber" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 45.0
+offset_top = 250.0
+offset_right = -45.0
+offset_bottom = 295.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center][b]Box #"
+fit_content = true
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="BoxNumber"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.611765)
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 950.0
+offset_right = 258.0
+offset_bottom = 1058.0
+pivot_offset = Vector2(54, 54)
+icon = ExtResource("3_ai72g")
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 950.0
+offset_right = 570.0
+offset_bottom = 1058.0
+pivot_offset = Vector2(54, 54)
+icon = ExtResource("4_g8ofw")
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -180.0
+offset_right = 100.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("5_l1kjw")
+icon_alignment = 1
+
+[connection signal="button_up" from="Previous" to="." method="_on_previous_button_up"]
+[connection signal="button_up" from="Next" to="." method="_on_next_button_up"]
+[connection signal="button_up" from="Save" to="." method="_on_save_button_up"]

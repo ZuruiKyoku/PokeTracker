@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dknah1ri5jr2k"]
+[gd_scene load_steps=13 format=3 uid="uid://dknah1ri5jr2k"]
 
+[ext_resource type="Theme" uid="uid://csfxn5wsj7bu8" path="res://ThemeFiles/theme.tres" id="1_jwula"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ujyw8"]
 [ext_resource type="Texture2D" uid="uid://c3uuomjd4i2rt" path="res://Images/Menu/TopDropdown.png" id="1_ya5wt"]
 [ext_resource type="Texture2D" uid="uid://qitowwkmvyld" path="res://Images/Menu/TopDropdownPressed.png" id="2_l6n58"]
 [ext_resource type="PackedScene" uid="uid://etqsd6x4yn7r" path="res://Scenes/menu_options.tscn" id="3_jes6s"]
+[ext_resource type="FontFile" uid="uid://cxp5rbhljppkd" path="res://ThemeFiles/RubikMonoOne-Regular.ttf" id="4_4450q"]
+[ext_resource type="PackedScene" uid="uid://bhm0g0swayhbi" path="res://Scenes/tracker_type.tscn" id="7_u5ogh"]
 
 [sub_resource type="Animation" id="Animation_tulki"]
 resource_name = "OpenMenu"
@@ -83,11 +86,81 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TrackerType:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_81tqv"]
+resource_name = "CloseMenu"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuOptions:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuOptions:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1205)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuOptions:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mdm8q"]
+resource_name = "ShowTrackerType"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrackerType:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7lb82"]
 _data = {
+"CloseMenu": SubResource("Animation_81tqv"),
 "OpenMenu": SubResource("Animation_tulki"),
-"RESET": SubResource("Animation_5dppc")
+"RESET": SubResource("Animation_5dppc"),
+"ShowTrackerType": SubResource("Animation_mdm8q")
 }
 
 [node name="Main" type="Control"]
@@ -97,7 +170,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jwula")
 script = ExtResource("1_ujyw8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7lb82")
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -134,30 +213,41 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Menu" type="TextureButton" parent="." groups=["Buttons"]]
+z_index = 10
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 1.0
+offset_right = 1.0
+offset_bottom = 50.0
 grow_horizontal = 2
 texture_normal = ExtResource("1_ya5wt")
 texture_pressed = ExtResource("2_l6n58")
 
-[node name="Label" type="Label" parent="TextureButton"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4450q")
+theme_override_font_sizes/font_size = 40
 text = "Menu"
 
 [node name="MenuOptions" parent="." instance=ExtResource("3_jes6s")]
 visible = false
 modulate = Color(1, 1, 1, 0)
+z_index = 15
 layout_mode = 1
 offset_top = 1205.0
 offset_bottom = 605.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7lb82")
-}
+[node name="TrackerType" parent="." instance=ExtResource("7_u5ogh")]
+visible = false
+layout_mode = 1
 
-[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="button_up" from="Menu" to="." method="_on_texture_button_button_up"]
+[connection signal="focus_exited" from="MenuOptions" to="." method="_on_menu_options_focus_exited"]

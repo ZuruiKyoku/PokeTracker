@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhm0g0swayhbi"]
+
+[ext_resource type="Theme" uid="uid://csfxn5wsj7bu8" path="res://ThemeFiles/theme.tres" id="1_o1jtg"]
+[ext_resource type="Script" path="res://Scripts/tracker_type.gd" id="2_e3frx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -350.0
+offset_right = 150.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 250)
+theme = ExtResource("1_o1jtg")
+script = ExtResource("2_e3frx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.171785, 0.195374, 0.239191, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Living" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Living"
+
+[node name="LivingFinalForm" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Living Final Form
+"
+
+[node name="LivingForm" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Living Form"
+
+[node name="ShinyLiving" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Shiny Living"
+
+[node name="ShinyLivingFinalForm" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Shiny Living FInal Form"
+
+[node name="ShinyLivingForm" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "Shiny Living Form"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Living" to="." method="_on_living_button_up"]
